@@ -22,7 +22,7 @@ CREATE TABLE incidence(
     description VARCHAR(2000) NOT NULL,
     send_date date NOT NULL,
     state INTEGER NOT NULL,
-    id_user INTEGER REFERENCES usuari(id)
+    id_user INTEGER REFERENCES users(id)
 );
 
 CREATE TABLE qr(
