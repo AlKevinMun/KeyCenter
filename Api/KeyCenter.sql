@@ -7,13 +7,13 @@ SET datastyle = YMD;
 
 -- Creacio taules
 
-CREATE TABLE user
+CREATE TABLE users
 (
     id INTEGER NOT NULL PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
-    profile_picture INTEGER NOT NULL,
-    qr_id INTEGER REFERENCE qr(id) NOT NULL
+    profile_picture INTEGERS NOT NULL,
+    qr_id INTEGER REFERENCES qr(id) NOT NULL
 );
 
 CREATE TABLE incidence(
@@ -22,7 +22,7 @@ CREATE TABLE incidence(
     description VARCHAR(2000) NOT NULL,
     send_date date NOT NULL,
     state INTEGER NOT NULL,
-    id_user INTEGER REFERENCE usuari(id)
+    id_user INTEGER REFERENCES usuari(id)
 );
 
 CREATE TABLE qr(
@@ -33,6 +33,6 @@ CREATE TABLE qr(
 CREATE TABLE KEY(
     id INTEGER NOT NULL PRIMARY KEY,
     room_name VARCHAR(50),
-    qr_id INTEGER REFERENCE qr(id) NOT NULL
+    qr_id INTEGER REFERENCES qr(id) NOT NULL
 );
 
