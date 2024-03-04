@@ -7,6 +7,17 @@ SET datastyle = YMD;
 
 -- Creacio taules
 
+CREATE TABLE qr(
+    id INTEGER NOT NULL PRIMARY KEY,
+    data BYTEA NOT NULL
+);
+
+CREATE TABLE llave(
+    id INTEGER NOT NULL PRIMARY KEY,
+    room_name VARCHAR(50),
+    qr_id INTEGER REFERENCES qr(id) NOT NULL
+);
+
 CREATE TABLE users
 (
     id INTEGER NOT NULL PRIMARY KEY,
@@ -25,14 +36,5 @@ CREATE TABLE incidence(
     id_user INTEGER REFERENCES users(id)
 );
 
-CREATE TABLE qr(
-    id INTEGER NOT NULL PRIMARY KEY,
-    data BYTEA NOT NULL
-);
 
-CREATE TABLE llave(
-    id INTEGER NOT NULL PRIMARY KEY,
-    room_name VARCHAR(50),
-    qr_id INTEGER REFERENCES qr(id) NOT NULL
-);
 
