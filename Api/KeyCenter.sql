@@ -22,7 +22,7 @@ CREATE TABLE users(
     username VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    profile_picture INTEGER NOT NULL,
+    profile_picture BYTEA,
     qr_id INTEGER REFERENCES qr(id) NOT NULL
 );
 
