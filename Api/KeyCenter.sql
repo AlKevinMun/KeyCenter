@@ -5,10 +5,10 @@ SET datestyle = DMY;
 
 -- Borrar taules
 
-DROP TABLE llave;
-DROP TABLE incidence;
-DROP TABLE users;
-DROP TABLE qr;
+DROP TABLE llave IF EXISTS;
+DROP TABLE incidence IF EXISTS;
+DROP TABLE users IF EXISTS;
+DROP TABLE qr IF EXISTS;
 
 -- Creacio taules
 
