@@ -1,7 +1,7 @@
 BEGIN WORK;
 SET TRANSACTION READ WRITE;
 
-SET datastyle = DMY;
+SET datestyle = DMY;
 
 -- Borrar taules
 
