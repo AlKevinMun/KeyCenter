@@ -29,8 +29,8 @@ CREATE TABLE users
 
 CREATE TABLE incidence(
     id INTEGER NOT NULL PRIMARY KEY,
-    topic VARCHAR(200),
-    description VARCHAR(2000) NOT NULL,
+    topic VARCHAR(200) NOT NULL,
+    description VARCHAR(2000),
     send_date date NOT NULL,
     state INTEGER NOT NULL,
     id_user INTEGER REFERENCES users(id)
