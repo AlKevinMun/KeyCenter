@@ -20,7 +20,7 @@ CREATE TABLE qr(
 CREATE TABLE users(
     id INTEGER NOT NULL PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    password VARCHAR(1000) NOT NULL,
     email VARCHAR(50) NOT NULL,
     profile_picture BYTEA,
     qr_id INTEGER REFERENCES qr(id) NOT NULL
