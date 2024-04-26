@@ -22,6 +22,7 @@ CREATE TABLE users(
     username VARCHAR(50) NOT NULL,
     password VARCHAR(1000) NOT NULL,
     email VARCHAR(50) NOT NULL,
+    rol VARCHAR(50) NOT NULL,
     profile_picture BYTEA,
     qr_id INTEGER REFERENCES qr(id) NOT NULL
 );
@@ -36,8 +37,8 @@ CREATE TABLE llave(
 CREATE TABLE incidence(
     id INTEGER NOT NULL PRIMARY KEY,
     topic VARCHAR(200) NOT NULL,
-    description VARCHAR(2000),
-    send_date date NOT NULL,
+    description VARCHAR(2000) NOT NULL,
+    send_date TIMESTAMP NOT NULL,
     state INTEGER NOT NULL,
     user_id INTEGER REFERENCES users(id)
 );
