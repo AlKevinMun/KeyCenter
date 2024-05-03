@@ -30,6 +30,7 @@ CREATE TABLE users(
 CREATE TABLE llave(
     id INTEGER NOT NULL PRIMARY KEY,
     room_name VARCHAR(50),
+    hora TIMESTAMP,
     qr_id INTEGER REFERENCES qr(id) NOT NULL,
     user_id INTEGER REFERENCES users(id)
 );
