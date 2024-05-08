@@ -9,10 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.sql.Timestamp;
+import java.util.*;
 
 @RestController
 @RequestMapping(LlaveResource.LLAVES)
@@ -40,6 +38,7 @@ public class LlaveResource {
         Qr qr = new Qr(llave);
         Llave llave1 = llave;
         llave1.setQr(qr);
+        llave1.setHora(new Timestamp(new Date().getTime()));
         qrController.addQr(llave1.getQr());
         return ResponseEntity.ok(llaveController.addLlave(llave1));
     }

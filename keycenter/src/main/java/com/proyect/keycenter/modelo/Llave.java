@@ -5,6 +5,8 @@ import com.proyect.keycenter.modelo.Qr;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 @Data
 @Entity
 @Table(name = "llave")
@@ -14,6 +16,7 @@ public class Llave {
     @Id
     private long id;
     private String room_name;
+    private Timestamp hora;
     private long qr_id;
     private long user_id;
 
