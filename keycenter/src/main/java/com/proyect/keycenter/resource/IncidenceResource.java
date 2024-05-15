@@ -3,7 +3,7 @@ package com.proyect.keycenter.resource;
 import com.google.zxing.WriterException;
 import com.proyect.keycenter.controller.*;
 import com.proyect.keycenter.dto.*;
-import com.proyect.keycenter.modelo.*;
+import com.proyect.keycenter.entities.Incidence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

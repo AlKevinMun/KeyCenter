@@ -1,6 +1,6 @@
 package com.proyect.keycenter.dao;
 
-import com.proyect.keycenter.modelo.*;
+import com.proyect.keycenter.entities.Llave;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

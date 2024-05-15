@@ -2,9 +2,10 @@ package com.proyect.keycenter.controller;
 
 import com.google.zxing.WriterException;
 import com.proyect.keycenter.dto.UserDto;
+import com.proyect.keycenter.entities.User;
 import com.proyect.keycenter.service.*;
-import com.proyect.keycenter.modelo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
@@ -13,6 +14,10 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    PasswordEncoder encoder;
+
     public List<UserDto> readAll() {
         List<UserDto> userDtos;
         userDtos = userService.readAllUsers().stream().map(UserDto::new).toList();
@@ -27,6 +32,8 @@ public class UserController {
         if (user.getRol() == null){
             user.setRol("Usuario");
         }
+        String pass = encoder.encode(user.getPassword());
+        user.setPassword(pass);
         return new UserDto(userService.addUser(user));
     }
 

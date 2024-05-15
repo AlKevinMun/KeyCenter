@@ -1,6 +1,6 @@
 package com.proyect.keycenter;
 
-import com.proyect.keycenter.modelo.IP;
+import com.proyect.keycenter.entities.IP;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,6 +1,6 @@
 package com.proyect.keycenter.dto;
 
-import com.proyect.keycenter.modelo.*;
+import com.proyect.keycenter.entities.Llave;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -11,7 +11,8 @@ public class LlaveDto {
     private String room_name;
     private Timestamp hora;
     private long qr_id;
-    private long user_id;
+    private long[] user_id;
+    private int cantidad;
 
     public LlaveDto() {
     }
@@ -22,5 +23,6 @@ public class LlaveDto {
         hora = llave.getHora();
         qr_id = llave.getQr_id();
         user_id = llave.getUser_id();
+        cantidad = llave.getCantidad();
     }
 }

@@ -1,7 +1,5 @@
-package com.proyect.keycenter.modelo;
+package com.proyect.keycenter.entities;
 
-import com.google.zxing.WriterException;
-import com.proyect.keycenter.modelo.Qr;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,7 +16,8 @@ public class Llave {
     private String room_name;
     private Timestamp hora;
     private long qr_id;
-    private long user_id;
+    private long[] user_id;
+    private int cantidad;
 
     public Llave() {
     }

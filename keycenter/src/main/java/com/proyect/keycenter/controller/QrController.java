@@ -1,7 +1,7 @@
 package com.proyect.keycenter.controller;
 
 import com.proyect.keycenter.dto.*;
-import com.proyect.keycenter.modelo.*;
+import com.proyect.keycenter.entities.Qr;
 import com.proyect.keycenter.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

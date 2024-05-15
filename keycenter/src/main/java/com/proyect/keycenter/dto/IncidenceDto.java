@@ -1,11 +1,9 @@
 package com.proyect.keycenter.dto;
 
+import com.proyect.keycenter.entities.Incidence;
 import lombok.Data;
 
-import com.proyect.keycenter.modelo.*;
-
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Data
 public class IncidenceDto {

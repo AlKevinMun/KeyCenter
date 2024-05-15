@@ -1,4 +1,4 @@
-package com.proyect.keycenter.modelo;
+package com.proyect.keycenter.entities;
 
 import lombok.Getter;
 

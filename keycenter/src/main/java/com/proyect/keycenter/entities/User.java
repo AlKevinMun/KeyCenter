@@ -1,12 +1,7 @@
-package com.proyect.keycenter.modelo;
+package com.proyect.keycenter.entities;
 
-import com.google.zxing.WriterException;
-import com.proyect.keycenter.dao.UserDAO;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Arrays;
 
 @Data
 @Entity

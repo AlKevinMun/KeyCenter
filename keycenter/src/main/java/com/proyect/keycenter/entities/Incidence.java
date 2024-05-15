@@ -1,12 +1,10 @@
-package com.proyect.keycenter.modelo;
+package com.proyect.keycenter.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 
 @Data
 @Entity

@@ -3,7 +3,8 @@ package com.proyect.keycenter.resource;
 import com.google.zxing.WriterException;
 import com.proyect.keycenter.controller.*;
 import com.proyect.keycenter.dto.*;
-import com.proyect.keycenter.modelo.*;
+import com.proyect.keycenter.entities.Llave;
+import com.proyect.keycenter.entities.Qr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +20,6 @@ public class LlaveResource {
 
     @Autowired
     LlaveController llaveController;
-    @Autowired
-    QrController qrController ;
 
     @GetMapping
     public ResponseEntity<List<LlaveDto>> getLlave(){
@@ -34,13 +33,7 @@ public class LlaveResource {
 
     @PostMapping
     public ResponseEntity<LlaveDto> newLlave(@RequestBody Llave llave) throws WriterException {
-        Qr.setIdMas(qrController.readAll().size());
-        Qr qr = new Qr(llave);
-        Llave llave1 = llave;
-        llave1.setQr(qr);
-        llave1.setHora(new Timestamp(new Date().getTime()));
-        qrController.addQr(llave1.getQr());
-        return ResponseEntity.ok(llaveController.addLlave(llave1));
+        return ResponseEntity.ok(llaveController.addLlave(llave));
     }
 
     @DeleteMapping("{id}")

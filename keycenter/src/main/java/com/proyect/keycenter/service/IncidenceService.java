@@ -2,7 +2,7 @@ package com.proyect.keycenter.service;
 
 import com.google.zxing.WriterException;
 import com.proyect.keycenter.dao.*;
-import com.proyect.keycenter.modelo.*;
+import com.proyect.keycenter.entities.Incidence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

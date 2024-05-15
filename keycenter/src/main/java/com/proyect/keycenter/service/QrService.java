@@ -1,6 +1,6 @@
 package com.proyect.keycenter.service;
 
-import com.proyect.keycenter.modelo.*;
+import com.proyect.keycenter.entities.Qr;
 import com.proyect.keycenter.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

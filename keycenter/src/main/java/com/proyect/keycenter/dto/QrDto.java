@@ -1,6 +1,6 @@
 package com.proyect.keycenter.dto;
 
-import com.proyect.keycenter.modelo.*;
+import com.proyect.keycenter.entities.Qr;
 import lombok.Data;
 
 @Data
