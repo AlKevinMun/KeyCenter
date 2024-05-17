@@ -16,8 +16,7 @@ public class Llave {
     private String room_name;
     private Timestamp hora;
     private long qr_id;
-    private long[] user_id;
-    private int cantidad;
+    private long user_id;
 
     public Llave() {
     }

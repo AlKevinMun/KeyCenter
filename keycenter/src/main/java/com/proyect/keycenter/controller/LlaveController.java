@@ -34,7 +34,8 @@ public class LlaveController {
         Qr.setIdMas(qrController.readAll().size());
         Qr qr = new Qr(llave);
         Llave llave1 = llave;
-        llave1.setUser_id(new long[llave1.getCantidad()]);
+        if(llave.getUser_id() == 0) llave1.setUser_id(1);
+        else llave1.setUser_id(llave.getUser_id());
         llave1.setQr(qr);
         llave1.setHora(new Timestamp(new Date().getTime()));
         qrController.addQr(llave1.getQr());
