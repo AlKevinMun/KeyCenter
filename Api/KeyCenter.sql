@@ -32,8 +32,7 @@ CREATE TABLE llave(
     room_name VARCHAR(50),
     hora TIMESTAMP,
     qr_id INTEGER REFERENCES qr(id) NOT NULL,
-    user_id INTEGER[],
-    cantidad INTEGER NOT NULL
+    user_id INTEGER REFERENCES users(id)
 );
 
 CREATE TABLE incidence(
