@@ -25,29 +25,59 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
+/**
+ * Configura la seguridad de la aplicación utilizando Spring Security para proteger las rutas y manejar la autenticación.
+ * Implementa CORS (Cross-Origin Resource Sharing) para permitir solicitudes desde diferentes dominios.
+ *
+ * @author Alejandro Parrilla Ruiz
+ */
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig  {
 
+    /**
+     * Servicio que proporciona operaciones relacionadas con el usuario.
+     */
     @Autowired
     UserService userService;
 
+    /**
+     * Entrypoint personalizado para manejar excepciones de autenticación.
+     */
     @Autowired
     private JwtAuthenticationEntryPoint point;
 
+
+    /**
+     * Filtro personalizado para manejar la autenticación basada en JWT.
+     */
     @Autowired
     private JWTFilter jwtAuthenticationFilter;
 
+    /**
+     * Bean que proporciona un codificador de contraseñas usando BCrypt.
+     * @return Un objeto {@link PasswordEncoder} que utiliza BCrypt para codificar contraseñas.
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Bean que proporciona un {@link AuthenticationManager} a través de la configuración de autenticación.
+     * @param builder La configuración de autenticación utilizada para obtener el {@link AuthenticationManager}.
+     * @return El {@link AuthenticationManager} obtenido de la configuración de autenticación.
+     * @throws Exception Si ocurre algún error al obtener el {@link AuthenticationManager}.
+     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration builder) throws Exception {
         return builder.getAuthenticationManager();
     }
 
+    /**
+     * Bean que proporciona un {@link AuthenticationProvider} que utiliza el servicio de detalles del usuario y un codificador de contraseñas.
+     * @return Un objeto {@link AuthenticationProvider} configurado con el servicio de detalles del usuario y el codificador de contraseñas.
+     */
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
@@ -56,7 +86,12 @@ public class SecurityConfig  {
         return provider;
     }
 
-
+    /**
+     * Bean que configura la cadena de filtros de seguridad para proteger las rutas de la aplicación.
+     * @param http El objeto {@link HttpSecurity} utilizado para configurar la seguridad.
+     * @return Una instancia de {@link SecurityFilterChain} construida con la configuración especificada.
+     * @throws Exception Si ocurre algún error durante la configuración de la seguridad.
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
@@ -80,7 +115,10 @@ public class SecurityConfig  {
         return http.build();
     }
 
-
+    /**
+     * Bean que proporciona una fuente de configuración CORS para permitir solicitudes desde diferentes orígenes.
+     * @return Un objeto {@link CorsConfigurationSource} configurado para permitir solicitudes desde localhost en los métodos GET, POST y DELETE.
+     */
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -95,8 +133,4 @@ public class SecurityConfig  {
 
         return source;
     }
-
-
-
-
 }

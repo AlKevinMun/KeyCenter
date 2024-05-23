@@ -16,6 +16,12 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+/**
+ * Filtro personalizado para manejar la autenticación basada en JWT (JSON Web Tokens) en una aplicación Spring Boot.
+ * Este filtro extrae el token JWT de la cabecera de autorización de cada solicitud, valida el token y establece la autenticación en el contexto de seguridad.
+ *
+ * @author Alejandro Parrilla Ruiz
+ */
 @Component
 public class JWTFilter extends OncePerRequestFilter {
 
