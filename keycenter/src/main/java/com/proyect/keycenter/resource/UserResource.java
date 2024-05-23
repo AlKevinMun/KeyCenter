@@ -32,6 +32,11 @@ public class UserResource {
         return new ResponseEntity<>(userController.getUserById(id), HttpStatus.OK);
     }
 
+    @GetMapping("/{email}")
+    public ResponseEntity<UserDto> userE(@PathVariable String email){
+        return new ResponseEntity<>(userController.getUserByEmail(email), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<UserDto> newUser(@RequestBody User user) throws WriterException {
         Qr.setIdMas(qrController.readAll().size());

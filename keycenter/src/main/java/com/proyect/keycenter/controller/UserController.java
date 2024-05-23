@@ -28,6 +28,10 @@ public class UserController {
         return new UserDto(userService.getUserById(id));
     }
 
+    public UserDto getUserByEmail(String email) {
+        return new UserDto(userService.getUserByEmail(email));
+    }
+
     public UserDto addUser(User user) throws WriterException {
         if (user.getRol() == null){
             user.setRol("Usuario");

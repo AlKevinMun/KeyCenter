@@ -35,6 +35,10 @@ public class UserService implements UserDetailsService {
         return userDAO.findById(id).orElse(null);
     }
 
+    public User getUserByEmail(String email) {
+        return userDAO.findByEmail(email);
+    }
+
     @Transactional
     public User addUser(User user) throws WriterException {
         return userDAO.save(user);
