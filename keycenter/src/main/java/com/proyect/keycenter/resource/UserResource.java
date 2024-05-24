@@ -32,8 +32,8 @@ public class UserResource {
         return new ResponseEntity<>(userController.getUserById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/{email}")
-    public ResponseEntity<UserDto> userE(@PathVariable String email){
+    @GetMapping("/email/{email}")
+    public ResponseEntity<UserDto> user(@PathVariable String email){
         return new ResponseEntity<>(userController.getUserByEmail(email), HttpStatus.OK);
     }
 
