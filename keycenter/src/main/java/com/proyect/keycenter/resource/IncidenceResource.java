@@ -4,6 +4,7 @@ import com.google.zxing.WriterException;
 import com.proyect.keycenter.controller.*;
 import com.proyect.keycenter.dto.*;
 import com.proyect.keycenter.entities.Incidence;
+import com.proyect.keycenter.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,10 @@ public class IncidenceResource {
     public ResponseEntity<?> deleteIncidence(@PathVariable Integer id){
         incidenceController.deleteIncidence(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<IncidenceDto> updateIncidence(@PathVariable Integer id, @RequestBody Incidence incidence){
+        return ResponseEntity.ok(new IncidenceDto(incidenceController.updateIncidence(id , incidence)));
     }
 }

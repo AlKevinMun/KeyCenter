@@ -31,4 +31,11 @@ public class IncidenceController {
     public void deleteIncidence(Integer id){
         incidenceService.deleteIncidence(id);
     }
+
+    public Incidence updateIncidence(Integer id, Incidence incidence) {
+        Incidence incidence1 = incidenceService.getIncidenceById(id);
+        incidence1.setState(incidence.getState());
+        return incidenceService.updateIncidence(incidence1);
+
+    }
 }

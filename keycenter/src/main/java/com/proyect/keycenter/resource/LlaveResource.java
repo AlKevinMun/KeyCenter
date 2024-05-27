@@ -3,6 +3,7 @@ package com.proyect.keycenter.resource;
 import com.google.zxing.WriterException;
 import com.proyect.keycenter.controller.*;
 import com.proyect.keycenter.dto.*;
+import com.proyect.keycenter.entities.Incidence;
 import com.proyect.keycenter.entities.Llave;
 import com.proyect.keycenter.entities.Qr;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,10 @@ public class LlaveResource {
     public ResponseEntity<?> deleteLlave(@PathVariable Integer id){
         llaveController.deleteLlave(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<LlaveDto> updateLlave(@PathVariable Integer id, @RequestBody Llave llave){
+        return ResponseEntity.ok(new LlaveDto(llaveController.updateLlave(id , llave)));
     }
 }

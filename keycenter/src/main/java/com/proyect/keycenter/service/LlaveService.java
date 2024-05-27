@@ -3,6 +3,7 @@ package com.proyect.keycenter.service;
 import com.google.zxing.WriterException;
 import com.proyect.keycenter.dao.*;
 import com.proyect.keycenter.entities.Llave;
+import com.proyect.keycenter.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,5 +29,9 @@ public class LlaveService {
 
     public void deleteLlave(Integer id){
         llaveDAO.deleteById(id);
+    }
+
+    public Llave updateLlave(Llave llave) {
+        return llaveDAO.save(llave);
     }
 }

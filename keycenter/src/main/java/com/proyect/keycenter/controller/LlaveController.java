@@ -45,4 +45,10 @@ public class LlaveController {
     public void deleteLlave(Integer id){
         llaveService.deleteLlave(id);
     }
+
+    public Llave updateLlave(Integer id, Llave llave) {
+        Llave llave1 = llaveService.getLlaveById(id);
+        llave1.setUser_id(llave.getUser_id());
+        return llaveService.updateLlave(llave1);
+    }
 }

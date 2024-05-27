@@ -2,6 +2,7 @@ package com.proyect.keycenter.service;
 
 import com.google.zxing.WriterException;
 import com.proyect.keycenter.dao.*;
+import com.proyect.keycenter.dto.UserDto;
 import com.proyect.keycenter.entities.Incidence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,10 +31,10 @@ public class IncidenceService {
         incidenceDAO.deleteById(id);
     }
 
-    /*public Incidence updateIncidence(Incidence incidence) {
+    public Incidence updateIncidence(Incidence incidence) {
         return incidenceDAO.save(incidence);
     }
-
+    /*
     public User modify(Incidence incidence) {
         return incidenceDAO.save(incidence);
     }*/

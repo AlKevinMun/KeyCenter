@@ -52,7 +52,7 @@ public class Qr {
         String data;
         if (o instanceof User){
             User u = (User) o;
-            data="user: "+u.getId();
+            data="user: "+u.getEmail();
         }else {
             Llave l = (Llave) o;
             data="llave: "+l.getId();
