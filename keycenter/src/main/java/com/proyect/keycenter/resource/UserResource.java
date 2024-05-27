@@ -5,6 +5,7 @@ import com.proyect.keycenter.controller.*;
 import com.proyect.keycenter.dto.*;
 import com.proyect.keycenter.entities.Qr;
 import com.proyect.keycenter.entities.User;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +20,6 @@ public class UserResource {
 
     @Autowired
     UserController userController;
-    @Autowired
-    QrController qrController ;
 
     @GetMapping
     public ResponseEntity<List<UserDto>> getUsers(){
@@ -39,12 +38,6 @@ public class UserResource {
 
     @PostMapping
     public ResponseEntity<UserDto> newUser(@RequestBody User user) throws WriterException {
-        Qr.setIdMas(qrController.readAll().size());
-        User.setIdMas(userController.readAll().size());
-        Qr qr = new Qr(user);
-        user.setQr(qr);
-        user.setId(User.getIdMas());
-        qrController.addQr(qr);
         return ResponseEntity.ok(userController.addUser(user));
     }
 
@@ -54,11 +47,16 @@ public class UserResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    /*@PutMapping("{id}")
+    @PutMapping("{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable Integer id, @RequestBody User user){
         return ResponseEntity.ok(new UserDto(userController.updateUser(id, user)));
     }
 
+    @PostConstruct
+    public void addAdmin() throws WriterException {
+        userController.autoAdmin();
+    }
+    /*
     @PatchMapping("{id}")
     public ResponseEntity<UserDto> modify(@PathVariable Integer id, @RequestBody JsonPatch patch) throws JsonPatchException, JsonProcessingException {
         return ResponseEntity.ok(userController.modify(id, patch));

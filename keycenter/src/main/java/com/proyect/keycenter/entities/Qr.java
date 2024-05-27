@@ -13,8 +13,6 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 @Entity
 @Table(name = "qr")
 public class Qr {
-    @Transient
-    static private long idMas;
     @Id
     private long id;
     private byte[] data;
@@ -24,8 +22,6 @@ public class Qr {
     }
 
     public Qr(Object o) throws WriterException {
-        idMas++;
-        id=idMas;
         data=transformarDatos(o);
     }
 
@@ -62,9 +58,5 @@ public class Qr {
             data=IP.ipAddress+"/qrIdForKey?idKey="+l.getId()+"&idQrr="+id;
         }
         return data;
-    }
-
-    public static void setIdMas(long idMas) {
-        Qr.idMas = idMas;
     }
 }

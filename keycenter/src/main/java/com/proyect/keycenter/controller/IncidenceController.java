@@ -24,6 +24,7 @@ public class IncidenceController {
     }
 
     public IncidenceDto addIncidence(Incidence incidence) throws WriterException {
+        Incidence incidence1 = new Incidence(incidence.getTopic(), incidence.getDescription(), incidence.getUser_id());
         return new IncidenceDto(incidenceService.addIncidence(incidence));
     }
 

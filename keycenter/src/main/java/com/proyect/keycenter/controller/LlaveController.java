@@ -31,8 +31,8 @@ public class LlaveController {
     }
 
     public LlaveDto addLlave(Llave llave) throws WriterException {
-        Qr.setIdMas(qrController.readAll().size());
         Qr qr = new Qr(llave);
+        qr.setId(qrController.readAll().size()+1);
         Llave llave1 = llave;
         if(llave.getUser_id() == 0) llave1.setUser_id(1);
         else llave1.setUser_id(llave.getUser_id());

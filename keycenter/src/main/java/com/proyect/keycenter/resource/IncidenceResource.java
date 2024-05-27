@@ -30,9 +30,7 @@ public class IncidenceResource {
 
     @PostMapping
     public ResponseEntity<IncidenceDto> newIncidence(@RequestBody Incidence incidence) throws WriterException {
-        Incidence.setIdMas(incidenceController.readAll().size());
-        Incidence incidence1 = new Incidence(incidence.getTopic(), incidence.getDescription(), incidence.getUser_id());
-        return ResponseEntity.ok(incidenceController.addIncidence(incidence1));
+        return ResponseEntity.ok(incidenceController.addIncidence(incidence));
     }
 
     @DeleteMapping("{id}")

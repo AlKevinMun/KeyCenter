@@ -10,9 +10,8 @@ import java.util.Date;
 @Entity
 @Table(name = "incidence")
 public class Incidence {
-    @Transient
-    static private long idMas;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private  String topic;
     private String description;
@@ -24,8 +23,6 @@ public class Incidence {
     }
 
     public Incidence(String topic, String description, int user_id) {
-        idMas++;
-        id=idMas;
         this.topic = topic;
         this.description = description;
         this.send_date = new Timestamp(new Date().getTime());
@@ -33,7 +30,4 @@ public class Incidence {
         this.user_id = user_id;
     }
 
-    public static void setIdMas(long idMas) {
-        Incidence.idMas = idMas;
-    }
 }

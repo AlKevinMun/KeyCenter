@@ -17,6 +17,7 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     UserDAO userDAO;
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         //Buscar a la bd l'usuari i el password
@@ -48,11 +49,12 @@ public class UserService implements UserDetailsService {
         userDAO.deleteById(id);
     }
 
-    /*public User updateUser(User user) {
+    public User updateUser(User user) {
         return userDAO.save(user);
     }
-
+    /*
     public User modify(User user) {
         return userDAO.save(user);
     }*/
+
 }

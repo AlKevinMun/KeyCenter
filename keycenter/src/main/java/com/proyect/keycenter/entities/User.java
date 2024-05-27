@@ -9,9 +9,8 @@ import lombok.Data;
 public class User {
     @Transient
     Qr qr;
-    @Transient
-    static long idMas;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String username;
     private String password;
@@ -23,17 +22,19 @@ public class User {
     public User() {
     }
 
-    public static void setIdMas(long idMas) {
-        User.idMas = idMas;
-    }
-
-    public static long getIdMas() {
-        idMas++;
-        return idMas;
-    }
 
     public void setQr(Qr qr) {
         this.qr = qr;
         qr_id=qr.getId();
+    }
+
+    public User(long id, String username, String password, String email, String rol, byte[] profile_picture, long qr_id) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.rol = rol;
+        this.profile_picture = profile_picture;
+        this.qr_id = qr_id;
     }
 }
