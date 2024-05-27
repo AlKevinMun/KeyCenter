@@ -52,10 +52,10 @@ public class Qr {
         String data;
         if (o instanceof User){
             User u = (User) o;
-            data= IP.ipAddress+"/qrIdForUser?idUser="+u.getId()+"&idQrr="+id;
+            data="user: "+u.getId();
         }else {
             Llave l = (Llave) o;
-            data=IP.ipAddress+"/qrIdForKey?idKey="+l.getId()+"&idQrr="+id;
+            data="llave: "+l.getId();
         }
         return data;
     }

@@ -21,7 +21,7 @@ public class UserController {
     PasswordEncoder encoder;
 
     public void autoAdmin() throws WriterException {
-        User user = new User(1, "Admin", "$2a$10$j.xlMK99YuKbgwC4l/MFPuOGti9.cAU9HJi6LBO1jSrf72lBNexb2", "admin@elpuig.xeill.net", "Admin", null, 1);
+        User user = new User(1, "Admin", "$2a$10$j.xlMK99YuKbgwC4l/MFPuOGti9.cAU9HJi6LBO1jSrf72lBNexb2", "admin@elpuig.xeill.net", "Admin", 1);
         Qr qr=new Qr(user);
         qr.setId(1);
         qrController.addQr(qr);

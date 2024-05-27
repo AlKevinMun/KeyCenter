@@ -16,7 +16,6 @@ public class User {
     private String password;
     private String email;
     private String rol;
-    private byte[] profile_picture;
     private long qr_id;
 
     public User() {
@@ -28,13 +27,12 @@ public class User {
         qr_id=qr.getId();
     }
 
-    public User(long id, String username, String password, String email, String rol, byte[] profile_picture, long qr_id) {
+    public User(long id, String username, String password, String email, String rol, long qr_id) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.rol = rol;
-        this.profile_picture = profile_picture;
         this.qr_id = qr_id;
     }
 }

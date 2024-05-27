@@ -9,7 +9,6 @@ public class UserDto {
     private String username;
     private String email;
     private String rol;
-    private byte[] profile_picture;
     private long qr_id;
 
     public UserDto() {
@@ -21,7 +20,6 @@ public class UserDto {
         username = user.getUsername();
         email = user.getEmail();
         rol = user.getRol();
-        profile_picture = user.getProfile_picture();
         qr_id = user.getQr_id();
     }
 }

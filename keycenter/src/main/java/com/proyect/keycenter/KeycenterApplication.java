@@ -1,6 +1,5 @@
 package com.proyect.keycenter;
 
-import com.proyect.keycenter.entities.IP;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -22,8 +21,6 @@ public class KeycenterApplication {
 	 * @throws UnknownHostException Si no se puede determinar la dirección IP local.
 	 */
 	public static void main(String[] args) throws UnknownHostException {
-		// Intenta obtener la dirección IP local antes de iniciar la aplicación
-		new IP();
 		SpringApplication.run(KeycenterApplication.class, args);
 	}
 }
