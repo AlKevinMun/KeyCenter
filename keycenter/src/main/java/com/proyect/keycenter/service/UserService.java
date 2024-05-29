@@ -15,12 +15,12 @@ import java.util.*;
 /**
  * UserService es un servicio que maneja la lógica relacionada con los usuarios.
  * Implementa UserDetailsService para la autenticación de usuarios.
+ * Utiliza UserDAO para interactuar con la base de datos.
  *
  * @author Alejandro Parrilla Ruiz
  */
 @Service
 public class UserService implements UserDetailsService {
-
     /**
      * Interactua con la base de datos de usuarios.
      */
@@ -73,10 +73,9 @@ public class UserService implements UserDetailsService {
      * Añade un nuevo usuario al sistema.
      * @param user el objeto User a añadir.
      * @return el usuario añadido.
-     * @throws WriterException si hay un error al generar el código QR.
      */
     @Transactional
-    public User addUser(User user) throws WriterException {
+    public User addUser(User user) {
         return userDAO.save(user);
     }
 
@@ -96,9 +95,5 @@ public class UserService implements UserDetailsService {
     public User updateUser(User user) {
         return userDAO.save(user);
     }
-    /*
-    public User modify(User user) {
-        return userDAO.save(user);
-    }*/
 
 }

@@ -1,0 +1,11 @@
+com.proyect.keycenter
+com.proyect.keycenter.controller
+com.proyect.keycenter.dao
+com.proyect.keycenter.dto
+com.proyect.keycenter.entities
+com.proyect.keycenter.filters
+com.proyect.keycenter.modelo
+com.proyect.keycenter.resource
+com.proyect.keycenter.security
+com.proyect.keycenter.service
+com.proyect.keycenter.util

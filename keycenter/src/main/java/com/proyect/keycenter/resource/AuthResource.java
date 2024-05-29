@@ -15,27 +15,46 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * AuthResource es un controlador REST para manejar solicitudes relacionadas con la autenticación de usuarios.
+ *
+ * @author Alejandro Parrilla Ruiz
+ */
 @RestController
 public class AuthResource {
-
-
+    /**
+     * El AuthenticationManager para autenticar a los usuarios.
+     */
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    /**
+     * El UserDetailsService para cargar los detalles del usuario durante la autenticación.
+     */
     @Autowired
     private UserDetailsService userDetailsService;
 
+    /**
+     * El JWTUtil para generar y validar tokens JWT.
+     */
     @Autowired
     private JWTUtil jwtTokenUtil;
 
-
-
+    /**
+     * Retorna un saludo "Hello World!", es una comprobación del endpoint.
+     * @return un String que contiene "Hello World!".
+     */
     @GetMapping("/hello")
     public String hello() {
         return "Hello World!";
     }
 
-
+    /**
+     * Maneja solicitudes POST para autenticar a los usuarios y generar un token JWT.
+     * @param authenticationRequest el objeto de solicitud de autenticación que contiene el email y la contraseña del usuario.
+     * @return una ResponseEntity que contiene un objeto AuthenticationResponse con el token JWT generado.
+     * @throws Exception si las credenciales de autenticación son incorrectas.
+     */
     @PostMapping("/auth")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         System.out.println("Email: " + authenticationRequest.getEmail());
@@ -54,5 +73,4 @@ public class AuthResource {
         System.out.println("JWT: " + jwt);
         return ResponseEntity.ok(new AuthenticationResponse(jwt).getJwt());
     }
-
 }

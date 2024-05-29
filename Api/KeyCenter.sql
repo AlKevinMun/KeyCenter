@@ -20,7 +20,6 @@ CREATE TABLE qr (
     data BYTEA NOT NULL
 );
 
-
 -- users
 CREATE SEQUENCE users_seq
   START WITH 1
@@ -45,7 +44,6 @@ CREATE TABLE llave(
     qr_id INTEGER REFERENCES qr(id) NOT NULL,
     user_id INTEGER REFERENCES users(id)
 );
-
 
 -- incidence
 CREATE SEQUENCE incidence_seq

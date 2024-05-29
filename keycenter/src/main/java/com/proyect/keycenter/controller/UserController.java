@@ -26,13 +26,13 @@ public class UserController {
     UserService userService;
 
     /**
-     * Controlador que maneja la lógica relacionada con los qr's.
+     * Controlador que maneja la lógica relacionada con los QR.
      */
     @Autowired
     QrController qrController;
 
     /**
-     * Ecoder para codificar la contraseña del usuario.
+     * Encoder para codificar la contraseña del usuario.
      */
     @Autowired
     PasswordEncoder encoder;
@@ -130,19 +130,4 @@ public class UserController {
         }
         return userService.updateUser(user1);
     }
-    /*
-    public UserDto modify(Integer id, JsonPatch patch) throws JsonPatchException, JsonProcessingException {
-
-        User user = userService.getUserById(id);
-        User userPatched = applyPatchToUser(patch, user);
-        userService.modify(userPatched);
-        return new UserDto(userService.modify(userPatched));
-
-    }
-
-    private User applyPatchToUser(JsonPatch patch, User user) throws JsonPatchException, JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode patched = patch.apply(objectMapper.convertValue(user, JsonNode.class));
-        return objectMapper.treeToValue(patched, User.class);
-    }*/
 }

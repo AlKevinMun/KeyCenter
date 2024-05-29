@@ -103,10 +103,5 @@ public class UserResource {
     public void addAdmin() throws WriterException {
         userController.autoAdmin();
     }
-    /*
-    @PatchMapping("{id}")
-    public ResponseEntity<UserDto> modify(@PathVariable Integer id, @RequestBody JsonPatch patch) throws JsonPatchException, JsonProcessingException {
-        return ResponseEntity.ok(userController.modify(id, patch));
-    }*/
 }
 
