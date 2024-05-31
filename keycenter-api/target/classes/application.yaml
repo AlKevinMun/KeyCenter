@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.253.48:5432/keycenter
+    username: usuario
+    password: password

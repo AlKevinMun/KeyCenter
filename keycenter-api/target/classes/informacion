@@ -1,0 +1,18 @@
+Para poner en marcha la API, simplemente dirígete al archivo KeycenterApplication y ejecútalo en IntelliJ. En el futuro, será un ejecutable independiente, por lo que no será necesario utilizar un IDE para ejecutarlo.
+
+Con esta API, puedes acceder a los siguientes 4 endpoints:
+
+http://localhost:8080/api/
+			users
+			qr
+			llaves
+			incidences
+
+La API aún no cuenta con control de usuarios, por lo tanto, en las partes donde se utiliza la ID del usuario, se debe añadir manualmente.
+
+A continuación, se presentan los cURL básicos para añadir datos (los códigos QR se añaden automáticamente al agregar una llave o un usuario). Los cURLs se pueden traducir a Postman si es más conveniente, pero si deseas probar la API rápidamente, puedes usar los cURLs en la terminal.
+También existen acciones de eliminación, pero no considero necesario incluirlas aquí debido a la escasa cantidad de datos disponibles en este momento.
+
+curl -d '{"username":"usuario", "email":"usuario@gmail.com","password":"12345", "rol":"Admin"}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/users
+curl -d '{"id":"109", "room_name":"Ada","user_id":"1"}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/llaves
+curl -d '{"topic":"Hola", "description":"Prueba de incidencia XD","user_id":1}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/incidences

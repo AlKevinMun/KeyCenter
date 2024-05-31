@@ -1,0 +1,64 @@
+BEGIN WORK;
+SET TRANSACTION READ WRITE;
+
+SET datestyle = DMY;
+
+-- Borrar taules
+
+DROP SEQUENCE IF EXISTS users_seq CASCADE;
+DROP SEQUENCE IF EXISTS incidence_seq CASCADE;
+DROP TABLE IF EXISTS llave CASCADE;
+DROP TABLE IF EXISTS incidence CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS qr CASCADE;
+
+-- Creacio taules
+
+-- qr
+CREATE TABLE qr (
+    id INTEGER NOT NULL PRIMARY KEY,
+    data BYTEA NOT NULL
+);
+
+-- users
+CREATE SEQUENCE users_seq
+  START WITH 1
+  INCREMENT BY 1
+  MINVALUE 1
+  CACHE 1;
+
+CREATE TABLE users (
+    id INTEGER NOT NULL PRIMARY KEY DEFAULT nextval('users_seq'),
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(1000) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    rol VARCHAR(50) NOT NULL,
+    qr_id INTEGER REFERENCES qr(id) NOT NULL
+);
+
+-- llave
+CREATE TABLE llave(
+    id INTEGER NOT NULL PRIMARY KEY,
+    room_name VARCHAR(50),
+    hora TIMESTAMP,
+    qr_id INTEGER REFERENCES qr(id) NOT NULL,
+    user_id INTEGER REFERENCES users(id)
+);
+
+-- incidence
+CREATE SEQUENCE incidence_seq
+  START WITH 1
+  INCREMENT BY 1
+  MINVALUE 1
+  CACHE 1;
+
+CREATE TABLE incidence (
+    id INTEGER NOT NULL PRIMARY KEY DEFAULT nextval('incidence_seq'),
+    topic VARCHAR(200) NOT NULL,
+    description VARCHAR(2000) NOT NULL,
+    send_date TIMESTAMP NOT NULL,
+    state INTEGER NOT NULL,
+    user_id INTEGER REFERENCES users(id)
+);
+
+COMMIT;
